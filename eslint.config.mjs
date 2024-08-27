@@ -1,37 +1,42 @@
-import globals from "globals";
-import pluginJs from "@eslint/js";
-import tseslint from "@typescript-eslint/eslint-plugin";
-import tsParser from "@typescript-eslint/parser";
-import prettierConfig from "eslint-config-prettier";
-import prettierPlugin from "eslint-plugin-prettier";
+// eslint.config.mjs
+import globals from 'globals';
+import pluginJs from '@eslint/js';
+import tseslint from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
+import prettierConfig from 'eslint-config-prettier';
+import prettierPlugin from 'eslint-plugin-prettier';
 
 export default [
+  // Base configuration
   {
     ignores: [
-      "node_modules/",
-      "dist/",
-      "build/",
+      'node_modules/',
+      'dist/',
+      'build/',
       // Add other patterns from your .eslintignore file here
     ],
   },
+  // Configuration for TypeScript and Prettier
   {
-    files: ["**/*.{js,mjs,cjs,ts}"],
+    files: ['**/*.{js,mjs,cjs,ts}'],
     languageOptions: {
       globals: globals.browser,
       parser: tsParser,
     },
     plugins: {
-      "@typescript-eslint": tseslint,
+      '@typescript-eslint': tseslint,
       prettier: prettierPlugin,
     },
-    extends: [
-      pluginJs.configs.recommended,
-      tseslint.configs.recommended,
-      prettierConfig, // Disables conflicting ESLint rules
-    ],
     rules: {
-      "prettier/prettier": "error", // Runs Prettier as an ESLint rule
-      // Add any custom ESLint or Prettier rules here
+      'prettier/prettier': 'error', // Enforces Prettier formatting as an ESLint rule
+      // Add other ESLint rules here
+    },
+    settings: {
+      'import/resolver': {
+        typescript: {}, // Ensure TypeScript imports are resolved
+      },
     },
   },
+  // Include Prettier configuration to disable conflicting rules
+  prettierConfig,
 ];

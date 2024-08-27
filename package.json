@@ -9,6 +9,7 @@
     "lint": "eslint src/**/*.ts",
     "format": "eslint src/**/*.ts --fix",
     "prettier": "prettier --write \"src/**/*.ts\"",
+    "lint:fix": "eslint --fix src/**/*.ts",
     "prepare": "husky install"
   },
   "keywords": [],
@@ -21,8 +22,7 @@
   "lint-staged": {
     "src/**/*.ts": [
       "prettier --write",
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ]
   },
   "license": "ISC",
@@ -31,6 +31,8 @@
     "@typescript-eslint/eslint-plugin": "^8.3.0",
     "@typescript-eslint/parser": "^8.3.0",
     "eslint": "^9.9.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "globals": "^15.9.0",
     "lint-staged": "^15.2.9",
     "prettier": "3.3.3",
