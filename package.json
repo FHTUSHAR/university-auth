@@ -19,7 +19,11 @@
     }
   },
   "lint-staged": {
-    "src/**/*.ts": ["npm run format && npm run prettier"]
+    "src/**/*.ts": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
   },
   "license": "ISC",
   "devDependencies": {
