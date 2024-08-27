@@ -15,11 +15,11 @@
   "author": "",
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "npm run lint && npm run prettier"
     }
   },
   "lint-staged": {
-    "src/**/*.ts": ""
+    "src/**/*.ts": "npm run format"
   },
   "license": "ISC",
   "devDependencies": {
