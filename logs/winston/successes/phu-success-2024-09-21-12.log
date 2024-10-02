@@ -1,0 +1,14 @@
+{
+  message: 'database connected',
+  level: 'info',
+  service: 'user-service',
+  label: 'Authentication',
+  timestamp: '2024-09-21T06:55:04.574Z'
+}
+{
+  message: 'Application app listening on port 5000',
+  level: 'info',
+  service: 'user-service',
+  label: 'Authentication',
+  timestamp: '2024-09-21T06:55:04.583Z'
+}

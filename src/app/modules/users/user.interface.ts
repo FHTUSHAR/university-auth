@@ -1,8 +1,8 @@
+import { Model } from "mongoose";
+
 export interface IUser {
   id: string;
   role: string;
   password: string;
-  createdAt: string;
-  updatedAt: string;
-  studentId: string;
 }
+export type UserModel = Model<IUser, Record<string, unknown>>;
