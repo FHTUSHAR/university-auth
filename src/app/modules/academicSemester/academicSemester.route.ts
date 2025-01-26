@@ -10,9 +10,8 @@ router.post(
 );
 
 router.patch('/:id',validateRequest(AcademicSemesterValidation.updateSemesterZodSchema),AcademicSemisterController.updateSemester)
-
 router.get("/:id",AcademicSemisterController.getSingleSemester)
-
+router.delete("/:id",AcademicSemisterController.deleteSemester)
 router.get("/",AcademicSemisterController.getAllSemester)
 
 

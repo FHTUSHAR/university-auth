@@ -9,7 +9,6 @@ const validateRequest=  (schema:AnyZodObject|ZodEffects<AnyZodObject>) =>async(r
         params:req.params,
         cookies:req.cookies
     })
-    console.log(req.body);
     return next()
   } catch (error) {
     next(error);

@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { code, months, title } from "./academicSemester.constant";
-import { Code, Months, Title } from "./academicSemester.interface";
+
 const academicSemesterZodSchema = z.object({
   body: z.object({
     title: z.enum([...title] as [string, ...string[]], {

@@ -9,7 +9,7 @@ import { IAcademicSemester } from "./academicSemester.interface";
 import { filterableFields } from "./academicSemester.constant";
 
 const createAcademicSemester = catchAsync(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: Request, res: Response) => {
     const { ...academicSemesterData } = req.body;
     const result = await AcademicSemesterService.createSemester(
       academicSemesterData
@@ -21,12 +21,11 @@ const createAcademicSemester = catchAsync(
       message: "Academic Semester created successfully",
       data: result,
     });
-    next();
   }
 );
 
 const getAllSemester = catchAsync(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: Request, res: Response) => {
     // const paginationOptions = {
     //   page: Number(req.query.page),
     //   limit: Number(req.query.limit),
@@ -47,12 +46,11 @@ const getAllSemester = catchAsync(
       meta: result.meta,
       data: result.data,
     });
-    next();
   }
 );
 
 const getSingleSemester = catchAsync(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: Request, res: Response) => {
     const { id } = req.params;
     const result = await AcademicSemesterService.getSingleSemester(id);
     sendResponse<IAcademicSemester | null>(res, {
@@ -61,12 +59,11 @@ const getSingleSemester = catchAsync(
       message: "Academic Semester fetch successfully",
       data: result,
     });
-    next();
   }
 );
 
 const updateSemester = catchAsync(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: Request, res: Response) => {
     const { id } = req.params;
     const updateData=req.body;
     const result = await AcademicSemesterService.updateSemester(id,updateData);
@@ -76,7 +73,19 @@ const updateSemester = catchAsync(
       message: "Academic Semester fetch successfully",
       data: result,
     });
-    next();
+  }
+);
+
+const deleteSemester = catchAsync(
+  async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const result = await AcademicSemesterService.deleteSemester(id);
+    sendResponse<IAcademicSemester | null>(res, {
+      statusCode: 200,
+      success: true,
+      message: "Academic Semester deleted successfully",
+      data: result,
+    });
   }
 );
 
@@ -84,5 +93,6 @@ export const AcademicSemisterController = {
   createAcademicSemester,
   getAllSemester,
   getSingleSemester,
-  updateSemester
+  updateSemester,
+  deleteSemester
 };
