@@ -3,7 +3,6 @@ import config from "../../config/index";
 import { IGenericErrorMessage } from "../../interfaces/error";
 import { handleValidationError } from "../../error/handleValidationError";
 import ApiError from "../../error/ApiError";
-import { errorlogger } from "../../shared/logger";
 import { ZodError } from "zod";
 import handleZodValidationError from "../../error/handleZodValidationError";
 import handleCastError from "../../error/handleCastError";
