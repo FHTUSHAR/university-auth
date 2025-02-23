@@ -31,9 +31,6 @@ const createStudent = async (user: IUser, student: IStudent) => {
     user.password = config.default_student_password as string;
   }
 
-  user.password = await bcrypt.hash(user.password, Number(config.bcrypt_salt_round))
-
-
   let newUserAllData = null;
   user.role = "student";
   const academicSemester = await AcademicSemester.findById(
@@ -43,14 +40,16 @@ const createStudent = async (user: IUser, student: IStudent) => {
   try {
     session.startTransaction();
     //generate student ID
-    
-    const newFaculty = await Student.create([student], { session });
-    if (!newFaculty) {
+    const id = await generateStudentId(academicSemester);
+    user.id = id;
+    student.id = id;
+    const newStudent = await Student.create([student], { session });
+    if (!newStudent) {
       throw new ApiError(BAD_REQUEST, "Failed to create student");
     }
-
+    
     //set _id to user
-    user.student = newFaculty[0]._id;
+    user.student = newStudent[0]._id;
     const newUser = await User.create([user], { session });
 
     if (!newUser) {
@@ -88,6 +87,7 @@ const createFaculty = async (user: IUser, faculty: IFaculty) => {
   if (!user.password) {
     user.password = config.default_student_password as string;
   }
+
   let newUserAllData = null;
   user.role = "faculty";
  
@@ -140,6 +140,7 @@ const createAdmin = async (user: IUser, admin: IAdmin) => {
   if (!user.password) {
     user.password = config.default_student_password as string;
   }
+
   let newUserAllData = null;
   user.role = "admin";
  
