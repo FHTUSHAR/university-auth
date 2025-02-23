@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import config from "../../../config";
+import bcrypt from 'bcrypt'
 import ApiError from "../../../error/ApiError";
 import { AcademicSemester } from "../academicSemester/academicSemester.model";
 import { IStudent } from "../student/student.interface";
@@ -12,6 +13,7 @@ import { IFaculty } from "../faculty/faculty.interface";
 import { Faculty } from "../faculty/faculty.model";
 import { IAdmin } from "../admin/admin.interface";
 import { Admin } from "../admin/admin.model";
+
 
 const createStudent = async (user: IUser, student: IStudent) => {
   // console.log(user)
@@ -28,6 +30,10 @@ const createStudent = async (user: IUser, student: IStudent) => {
   if (!user.password) {
     user.password = config.default_student_password as string;
   }
+
+  user.password = await bcrypt.hash(user.password, Number(config.bcrypt_salt_round))
+
+
   let newUserAllData = null;
   user.role = "student";
   const academicSemester = await AcademicSemester.findById(
@@ -37,9 +43,7 @@ const createStudent = async (user: IUser, student: IStudent) => {
   try {
     session.startTransaction();
     //generate student ID
-    const id = await generateStudentId(academicSemester);
-    user.id = id;
-    student.id = id;
+    
     const newFaculty = await Student.create([student], { session });
     if (!newFaculty) {
       throw new ApiError(BAD_REQUEST, "Failed to create student");
