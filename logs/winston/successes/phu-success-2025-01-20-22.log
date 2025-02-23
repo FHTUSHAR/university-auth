@@ -1,0 +1,84 @@
+{
+  message: 'database connected',
+  level: 'info',
+  service: 'user-service',
+  label: 'Authentication',
+  timestamp: '2025-01-20T16:00:26.892Z'
+}
+{
+  message: 'Application app listening on port 5000',
+  level: 'info',
+  service: 'user-service',
+  label: 'Authentication',
+  timestamp: '2025-01-20T16:00:26.900Z'
+}
+{
+  message: 'database connected',
+  level: 'info',
+  service: 'user-service',
+  label: 'Authentication',
+  timestamp: '2025-01-20T16:00:42.301Z'
+}
+{
+  message: 'Application app listening on port 5000',
+  level: 'info',
+  service: 'user-service',
+  label: 'Authentication',
+  timestamp: '2025-01-20T16:00:42.322Z'
+}
+{
+  message: 'database connected',
+  level: 'info',
+  service: 'user-service',
+  label: 'Authentication',
+  timestamp: '2025-01-20T16:01:59.158Z'
+}
+{
+  message: 'Application app listening on port 5000',
+  level: 'info',
+  service: 'user-service',
+  label: 'Authentication',
+  timestamp: '2025-01-20T16:01:59.172Z'
+}
+{
+  message: 'database connected',
+  level: 'info',
+  service: 'user-service',
+  label: 'Authentication',
+  timestamp: '2025-01-20T16:02:09.223Z'
+}
+{
+  message: 'Application app listening on port 5000',
+  level: 'info',
+  service: 'user-service',
+  label: 'Authentication',
+  timestamp: '2025-01-20T16:02:09.240Z'
+}
+{
+  message: 'database connected',
+  level: 'info',
+  service: 'user-service',
+  label: 'Authentication',
+  timestamp: '2025-01-20T16:02:13.532Z'
+}
+{
+  message: 'Application app listening on port 5000',
+  level: 'info',
+  service: 'user-service',
+  label: 'Authentication',
+  timestamp: '2025-01-20T16:02:13.569Z'
+}
+{
+  message: 'database connected',
+  level: 'info',
+  service: 'user-service',
+  label: 'Authentication',
+  timestamp: '2025-01-20T16:02:20.534Z'
+}
+{
+  message: 'Application app listening on port 5000',
+  level: 'info',
+  service: 'user-service',
+  label: 'Authentication',
+  timestamp: '2025-01-20T16:02:20.546Z'
+}
