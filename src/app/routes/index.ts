@@ -7,7 +7,7 @@ import { StudentRoutes } from "../modules/student/student.route";
 import { FacultyRoutes } from "../modules/faculty/faculty.route";
 import { ManagementDepartmentRoutes } from "../modules/managementDepartment/ManagementDepartment.routes";
 import { AdminRoutes } from "../modules/admin/admin.route";
-import { AuthRoute } from "../modules/auth/auth.route";
+import { AuthRoutes } from "../modules/auth/auth.route";
 const router = express.Router();
 
 const moduleRoutes = [
@@ -45,7 +45,7 @@ const moduleRoutes = [
   },
   {
     path: "/auth",
-    route: AuthRoute,
+    route: AuthRoutes,
   },
 ];
 moduleRoutes.map((route) => router.use(route.path, route.route));

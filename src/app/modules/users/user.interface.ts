@@ -11,6 +11,7 @@ export interface IUser {
   faculty?: Types.ObjectId | IFaculty;
   admin?: Types.ObjectId | IAdmin;
   needsPasswordChange?: boolean;
+  passwordChangedAt?:Date;
 }
 //-------------for method--------------
 // export interface IUserMethods {

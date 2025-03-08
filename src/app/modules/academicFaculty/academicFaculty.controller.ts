@@ -36,6 +36,8 @@ sendResponse(res, {
 
 const getAllFaculty = catchAsync(async (req: Request, res: Response) => {
   const filters = pick(req.query, filterableFields);
+
+  console.log(req.user)
   const paginationOptions = pick(req.query, paginationField);
   const result = await AcademicFacultyService.getAllFaculty(
     filters,
